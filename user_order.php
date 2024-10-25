@@ -59,7 +59,7 @@ $conn->close();
 <html lang="en">
 
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
     <title>ka_jang_handmade</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
@@ -136,7 +136,7 @@ $conn->close();
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="user_dashboard.php" class="nav-item nav-link"><i class="fa-solid fa-house me-2"></i>Home</a>
-                <a href="trakra.php" class="nav-item nav-link"><i class="bi bi-cart-fill"></i>  Shop</a>
+                <a href="trakra.php" class="nav-item nav-link"><i class="bi bi-cart-fill"></i> Shop</a>
                 <a href="meaning-of-flowers.php" class="nav-item nav-link"><i class="fa-solid fa-leaf me-2"></i>Meaning of Flowers</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Products</a>
@@ -147,7 +147,7 @@ $conn->close();
                     </div>
                 </div>
                 <a href="about.php" class="nav-item nav-link"><i class="fa-solid fa-user me-2"></i>About</a>
-                <a href ="user_order.php" class="nav-item nav-link active"><i class="bi bi-person-check-fill"></i> <?php echo htmlspecialchars($username); ?> </a>
+                <a href="user_order.php" class="nav-item nav-link active"><i class="bi bi-person-check-fill"></i> <?php echo htmlspecialchars($username); ?> </a>
                 <a href="Logout.php" class="nav-item nav-link"><i class="bi bi-box-arrow-right"></i> Logout</a>
             </div>
             <a href="https://www.instagram.com/ka_jang_handmade/"
@@ -170,39 +170,85 @@ $conn->close();
         </div>
     </div>
     <!-- Page Header End -->
-   
+
 
     <div class="container mt-5">
-    <h2 class="text-center mb-4">รายการสั่งซื้อ</h2>
-    <?php if ($result->num_rows > 0): ?>
-        <div class="table-responsive">
-            <table class="table table-bordered table-hover">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Order ID</th>
-                        <th>Product Name</th>
-                        <th>Quantity</th>
-                        <th>Name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php while ($row = $result->fetch_assoc()): ?>
+        <h2 class="text-center mb-4">รายการสั่งซื้อ</h2>
+        <?php if ($result->num_rows > 0): ?>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
                         <tr>
-                            <td><?php echo htmlspecialchars($row['id']); ?></td>
-                            <td><?php echo htmlspecialchars($row['product_name']); ?></td>
-                            <td><?php echo htmlspecialchars($row['quantity']); ?></td>
-                            <td><?php echo htmlspecialchars($row['username']); ?></td>
+                            <th>Order ID</th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Name</th>
                         </tr>
-                    <?php endwhile; ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php while ($row = $result->fetch_assoc()): ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($row['id']); ?></td>
+                                <td><?php echo htmlspecialchars($row['product_name']); ?></td>
+                                <td><?php echo htmlspecialchars($row['quantity']); ?></td>
+                                <td><?php echo htmlspecialchars($row['username']); ?></td>
+                            </tr>
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
+            </div>
+        <?php else: ?>
+            <div class="alert alert-info text-center">
+                ไม่พบรายการสั่งซื้อ
+            </div>
+        <?php endif; ?>
+    </div>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- Footer start-->
+    <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Contact Shop</h4>
+                    <p class="mb-2 d-flex align-items-center"><a class="btn btn-outline-light btn-social"
+                            href="https://www.instagram.com/ka_jang_handmade/"><i
+                                class="fab fa-instagram"></i></a>ka_jang_handmade</p>
+                    <p class="mb-2 d-flex align-items-center"><a class="btn btn-outline-light btn-social"
+                            href="https://www.instagram.com/jjjub__jang/"><i
+                                class="fab fa-instagram"></i></a>jjjub__jang</p>
+                    <p class="mb-2 d-flex align-items-center mali-regular"><a class="btn btn-outline-light btn-social"
+                            href="https://www.facebook.com/jjjangggg"><i class="fab fa-facebook"></i></a>จิรัชญา
+                        สวัสดิ์วงศ์</p>
+                    <p class="mb-2 d-flex align-items-center"><a class="btn btn-outline-light btn-social"
+                            href="https://www.tiktok.com/@kajang.handmade?is_from_webapp=1&sender_device=pc"><i
+                                class="fab fa-tiktok"></i></a>kajang.handmade</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Products</h4>
+                    <a class="btn btn-link" href="ourshop-flower-01.php">Flower</a>
+                    <a class="btn btn-link" href="ourshop-accessories-01.php">Accessorie</a>
+                    <a class="btn btn-link" href="ourshop-keychain-01.php">Keychain</a>
+                </div>
+            </div>
         </div>
-    <?php else: ?>
-        <div class="alert alert-info text-center">
-            ไม่พบรายการสั่งซื้อ
+    </div>
+    <div class="container">
+        <div class="copyright">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a class="border-bottom" href="user_dashboard.php.html">ka_jang_handmade</a>, All Right Reserved.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                    Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                </div>
+            </div>
         </div>
-    <?php endif; ?>
-</div>
+    </div>
+    <!-- Footer End-->
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

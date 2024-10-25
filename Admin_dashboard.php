@@ -11,7 +11,6 @@ if (isset($_SESSION['username'])) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -101,7 +100,7 @@ if (isset($_SESSION['username'])) {
                 <!--<a href="about.html" class="nav-item nav-link"><i class="fa-solid fa-user me-2"></i>About</a>-->
                 <a href="stock.php" class="nav-item nav-link"><i class="fa-solid fa-box me-2"></i>Stock</a>
                 <a href="admin_orders.php" class="nav-item nav-link"><i class="bi bi-bag-check-fill"></i> Order</a>
-                <a href ="user_order.php" class="nav-item nav-link"><i class="bi bi-person-check-fill"></i> <?php echo htmlspecialchars($username); ?> </a>
+                <a class="nav-item nav-link"><i class="bi bi-person-check-fill"></i> <?php echo htmlspecialchars($username); ?> </a>
                 <a href="Logout.php" class="nav-item nav-link"><i class="bi bi-box-arrow-right"></i> Logout</a>
             </div>
             <!--<a href="https://www.instagram.com/ka_jang_handmade/"
@@ -111,14 +110,18 @@ if (isset($_SESSION['username'])) {
     </nav>
     <!-- Navbar End -->
 
+<!-- Page Header Start -->
+<div class="container-fluid page-header py-5 mb-5">
+        <div class="container py-5">
+        <a href="Admin_dashboard.php"><h1 class="display-3 text-white mb-3 animated slideInDown">ADMIN MENU</h1></a>
+        </div>
+    </div>
+    <!-- Page Header End -->
 
    
 <!-- Flower Example Start-->
 <div class="container-xxl py-3">
     <div class="container">
-        <div class="section-title text-start">
-            <h1 class="display-6 mb-5"><a href="Admin_dashboard.php">ADMIN MENU</a></h1>
-        </div>
         <div class="row g-4">
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="team-item">
@@ -154,42 +157,7 @@ if (isset($_SESSION['username'])) {
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-<!-- Footer start-->
-<div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container py-5">
-        <div class="row g-5">
-            <div class="col-lg-3 col-md-6">
-                <h4 class="text-light mb-4">Contact Shop</h4>
-                <p class="mb-2 d-flex align-items-center"><a class="btn btn-outline-light btn-social"
-                        href="https://www.instagram.com/ka_jang_handmade/"><i
-                            class="fab fa-instagram"></i></a>ka_jang_handmade</p>
-                <p class="mb-2 d-flex align-items-center"><a class="btn btn-outline-light btn-social"
-                        href="https://www.instagram.com/jjjub__jang/"><i
-                            class="fab fa-instagram"></i></a>jjjub__jang</p>
-                <p class="mb-2 d-flex align-items-center mali-regular"><a class="btn btn-outline-light btn-social"
-                        href="https://www.facebook.com/jjjangggg"><i class="fab fa-facebook"></i></a>จิรัชญา
-                    สวัสดิ์วงศ์</p>
-                <p class="mb-2 d-flex align-items-center"><a class="btn btn-outline-light btn-social"
-                        href="https://www.tiktok.com/@kajang.handmade?is_from_webapp=1&sender_device=pc"><i
-                            class="fab fa-tiktok"></i></a>kajang.handmade</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="copyright">
-        <div class="row">
-            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                &copy; <a class="border-bottom" href="user_dashboard.php.html">ka_jang_handmade</a>, All Right Reserved.
-            </div>
-            <div class="col-md-6 text-center text-md-end">
-                <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Footer End-->
+
 
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

@@ -132,13 +132,13 @@ if (isset($_SESSION['username'])) {
 <div class="container-xxl py-3">
     <div class="container">
         <div class="section-title text-start">
-            <h1 class="display-6 mb-5"><a href="ourshop-flower-01.html">Flower</a></h1>
+            <h1 class="display-6 mb-5"><a href="ourshop-flower-01.php">Flower</a></h1>
         </div>
         <div class="row g-4">
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="team-item">
                     <div class="overflow-hidden position-relative rounded-3">
-                        <a href="detail-flowers\page-1\product-flower-1.html"><img class="img-fluid"
+                        <a href="detail-flowers\page-1\product-flower-1.php"><img class="img-fluid"
                                 src="img/flower/page-1/product-1.png" alt=""></a>
                     </div>
                     <div class="text-center border border-5 border-light border-top-0 p-4">
@@ -152,7 +152,7 @@ if (isset($_SESSION['username'])) {
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
                 <div class="team-item">
                     <div class="overflow-hidden position-relative rounded-3">
-                        <a href="detail-flowers\page-1\product-flower-2.html"><img class="img-fluid"
+                        <a href="detail-flowers\page-1\product-flower-2.php"><img class="img-fluid"
                                 src="img/flower/page-1/product-2.png" alt=""></a>
                     </div>
                     <div class="text-center border border-5 border-light border-top-0 p-4">
@@ -165,7 +165,7 @@ if (isset($_SESSION['username'])) {
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.9s">
                 <div class="team-item">
                     <div class="overflow-hidden position-relative rounded-3">
-                        <a href="detail-flowers\page-1\product-flower-3.html"><img class="img-fluid"
+                        <a href="detail-flowers\page-1\product-flower-3.php"><img class="img-fluid"
                                 src="img/flower/page-1/product-3.png" alt=""></a>
                     </div>
                     <div class="text-center border border-5 border-light border-top-0 p-4">
@@ -176,7 +176,7 @@ if (isset($_SESSION['username'])) {
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 wow fadeInUp align-items-center d-flex" data-wow-delay="1.2s">
-                <h3 class="text-uppercase"><a href="ourshop-flower-01.html">See more...<i
+                <h3 class="text-uppercase"><a href="ourshop-flower-01.php">See more...<i
                             class="fa-solid fa-circle-arrow-right"></i></a></h3>
             </div>
         </div>
@@ -188,13 +188,13 @@ if (isset($_SESSION['username'])) {
 <div class="container-xxl py-3">
     <div class="container">
         <div class="section-title text-start">
-            <h1 class="display-6 mb-5"><a href="ourshop-accessories-01.html">Accessorie</a></h1>
+            <h1 class="display-6 mb-5"><a href="ourshop-accessories-01.php">Accessorie</a></h1>
         </div>
         <div class="row g-4">
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="team-item">
                     <div class="overflow-hidden position-relative rounded-3">
-                        <a href="detail-accessories\page-1\product-accessories-1.html"><img class="img-fluid"
+                        <a href="detail-accessories\page-1\product-accessories-1.php"><img class="img-fluid"
                                 src="img\accessories\page-1\product-1.png" alt=""></a>
                     </div>
                     <div class="text-center border border-5 border-light border-top-0 p-4">
@@ -205,7 +205,7 @@ if (isset($_SESSION['username'])) {
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 wow fadeInUp align-items-center d-flex" data-wow-delay="0.6s">
-                <h3 class="text-uppercase"><a href="ourshop-accessories-01.html">See more...<i
+                <h3 class="text-uppercase"><a href="ourshop-accessories-01.php">See more...<i
                             class="fa-solid fa-circle-arrow-right"></i></a></h3>
             </div>
         </div>
@@ -217,12 +217,12 @@ if (isset($_SESSION['username'])) {
 <div class="container-xxl py-3">
     <div class="container">
         <div class="section-title text-start">
-            <h1 class="display-6 mb-5"><a href="ourshop-flower-01.html">Keychain</a></h1>
+            <h1 class="display-6 mb-5"><a href="ourshop-flower-01.php">Keychain</a></h1>
         </div>
         <div class="row g-4">
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="team-item">
-                    <div class="detail-keychain\page-1\product-keychain-1.html"><img class="img-fluid"
+                    <div class="detail-keychain\page-1\product-keychain-1.php"><img class="img-fluid"
                             src="img\keychain\page-1\product-1.jpg" alt=""></a>
                     </div>
                     <div class="text-center border border-5 border-light border-top-0 p-4">
@@ -236,7 +236,7 @@ if (isset($_SESSION['username'])) {
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
                 <div class="team-item">
                     <div class="overflow-hidden position-relative rounded-3">
-                        <a href="detail-keychain\page-1\product-keychain-2.html"><img class="img-fluid"
+                        <a href="detail-keychain\page-1\product-keychain-2.php"><img class="img-fluid"
                                 src="img\keychain\page-1\product-2.jpg" alt=""></a>
                     </div>
                     <div class="text-center border border-5 border-light border-top-0 p-4">
@@ -250,7 +250,7 @@ if (isset($_SESSION['username'])) {
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.9s">
                 <div class="team-item">
                     <div class="overflow-hidden position-relative rounded-3">
-                        <a href="#"><img class="img-fluid" src="img\keychain\page-1\product-3.jpg" alt=""></a>
+                        <a href="detail-keychain\page-1\product-keychain-3.php"><img class="img-fluid" src="img\keychain\page-1\product-3.jpg" alt=""></a>
                     </div>
                     <div class="text-center border border-5 border-light border-top-0 p-4">
                         <h5 class="mb-0">Jellyfish</h5>
@@ -260,7 +260,7 @@ if (isset($_SESSION['username'])) {
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 wow fadeInUp align-items-center d-flex" data-wow-delay="1.2s">
-                <h3 class="text-uppercase"><a href="ourshop-keychain-01.html">See more...<i
+                <h3 class="text-uppercase"><a href="ourshop-keychain-01.php">See more...<i
                             class="fa-solid fa-circle-arrow-right"></i></a></h3>
             </div>
         </div>
@@ -292,10 +292,10 @@ if (isset($_SESSION['username'])) {
                             class="fab fa-tiktok"></i></a>kajang.handmade</p>
             </div>
             <div class="col-lg-3 col-md-6">
-                <h4 class="text-light mb-4">Our Shop</h4>
-                <a class="btn btn-link" href="ourshop-flower-01.html">Flower</a>
-                <a class="btn btn-link" href="ourshop-accessories-01.html">Accessorie</a>
-                <a class="btn btn-link" href="ourshop-keychain-01.html">Keychain</a>
+                <h4 class="text-light mb-4">Products</h4>
+                <a class="btn btn-link" href="ourshop-flower-01.php">Flower</a>
+                <a class="btn btn-link" href="ourshop-accessories-01.php">Accessorie</a>
+                <a class="btn btn-link" href="ourshop-keychain-01.php">Keychain</a>
             </div>
         </div>
     </div>

@@ -277,7 +277,7 @@ if (isset($_SESSION['username'])) {
                                 class="fab fa-tiktok"></i></a>kajang.handmade</p>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Product</h4>
+                    <h4 class="text-light mb-4">Products</h4>
                     <a class="btn btn-link" href="ourshop-flower-01.php">Flower</a>
                     <a class="btn btn-link" href="ourshop-accessories-01.php">Accessorie</a>
                     <a class="btn btn-link" href="ourshop-keychain-01.php">Keychain</a>
