@@ -89,7 +89,7 @@ if (isset($_SESSION['username'])) {
                 <a href="../../index.html" class="nav-item nav-link"><i class="fa-solid fa-house me-2"></i>Home</a>
                 <a href="../../meaning-of-flowers.php" class="nav-item nav-link"><i class="fa-solid fa-leaf me-2"></i>Meaning of Flowers</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Product</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Products</a>
                     <div class="dropdown-menu fade-up m-0">
                         <a href="../../ourshop-flower-01.html" class="dropdown-item">Flowers</a>
                         <a href="../../ourshop-accessories-01.html" class="dropdown-item">Accessories</a>

@@ -173,7 +173,7 @@ try {
                 <a href="trakra.php" class="nav-item nav-link active"><i class="bi bi-cart-fill"></i>  Shop</a>
                 <a href="meaning-of-flowers.php" class="nav-item nav-link"><i class="fa-solid fa-leaf me-2"></i>Meaning of Flowers</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Product</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Products</a>
                     <div class="dropdown-menu fade-up m-0">
                         <a href="ourshop-flower-01.php" class="dropdown-item">Flower</a>
                         <a href="ourshop-accessories-01.php" class="dropdown-item">Accessorie</a>
@@ -181,7 +181,7 @@ try {
                     </div>
                 </div>
                 <a href="about.php" class="nav-item nav-link"><i class="fa-solid fa-user me-2"></i>About</a>
-                <a class="nav-item nav-link"><i class="bi bi-person-check-fill"></i> <?php echo htmlspecialchars($username); ?> </a>
+                <a href ="user_order.php" class="nav-item nav-link"><i class="bi bi-person-check-fill"></i> <?php echo htmlspecialchars($username); ?> </a>
                 <a href="Logout.php" class="nav-item nav-link"><i class="bi bi-box-arrow-right"></i> Logout</a>
             </div>
             <a href="https://www.instagram.com/ka_jang_handmade/"
@@ -190,6 +190,21 @@ try {
         </div>
     </nav>
     <!-- Navbar End -->
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Shop</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a class="text-white" href="user_dashboard.php">Home</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Shop</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
     <style>
         .team-item {
             border: 1px solid #ddd;

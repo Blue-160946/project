@@ -89,7 +89,7 @@ if (isset($_SESSION['username'])) {
                 <a href="meaning-of-flowers.php" class="nav-item nav-link"><i
                         class="fa-solid fa-leaf me-2"></i>Meaning of Flowers</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Product</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Products</a>
                     <div class="dropdown-menu fade-up m-0">
                         <a href="ourshop-flower-01.php" class="dropdown-item">Flower</a>
                         <a href="ourshop-accessories-01.php" class="dropdown-item">Accessorie</a>
@@ -97,7 +97,7 @@ if (isset($_SESSION['username'])) {
                     </div>
                 </div>
                 <a href="about.php" class="nav-item nav-link active"><i class="fa-solid fa-user me-2"></i>About</a>
-                <a class="nav-item nav-link"><i class="bi bi-person-check-fill"></i> <?php echo htmlspecialchars($username); ?> </a>
+                <a href ="user_order.php" class="nav-item nav-link"><i class="bi bi-person-check-fill"></i> <?php echo htmlspecialchars($username); ?> </a>
                 <a href="Logout.php" class="nav-item nav-link"><i class="bi bi-box-arrow-right"></i> Logout</a>
                 <a href="https://www.instagram.com/ka_jang_handmade/"
                     class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Contact<i
