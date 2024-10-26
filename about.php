@@ -161,6 +161,72 @@ if (isset($_SESSION['username'])) {
                         </p>
                     </div>
                 </div>
+                <div class="col-lg-6 about-text py-5 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="p-lg-5 pe-lg-0">
+                        <div class="section-title text-start">
+                            <h1 class="display-5 mb-4 mali-bold">เจ้านาย (Dev.)</h1>
+                        </div>
+                        <p class="mb-4 pb-2 mali-regular">นายสองปนนท์ คำตื้อ
+                            <br><br>ชื่อเล่น ฟลุ๊ค
+                            <br><br>คณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยนเรศวร
+                            <br><br>"ถ้าเราเติม s หลังคำว่าเพื่อน เราจะได้เป็นมากกว่าเพื่อนไหมครับ"
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-0 " style="min-height: 700px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute img-fluid w-100 h-100" src="img\about5.jpg"
+                            style="object-fit: cover;" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 about-text py-5 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="p-lg-5 pe-lg-0">
+                        <div class="section-title text-start">
+                            <h1 class="display-5 mb-4 mali-bold">เจ้านาย (Dev.)</h1>
+                        </div>
+                        <p class="mb-4 pb-2 mali-regular">นายอภิสิทธิ์ กลัดรุ่ง
+                            <br><br>ชื่อเล่น เจต
+                            <br><br>คณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยนเรศวร
+                            <br><br>""
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-0 " style="min-height: 700px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute img-fluid w-100 h-100" src="img\about4.jpg"
+                            style="object-fit: cover;" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 about-text py-5 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="p-lg-5 pe-lg-0">
+                        <div class="section-title text-start">
+                            <h1 class="display-5 mb-4 mali-bold">เจ้านาย (Dev.)</h1>
+                        </div>
+                        <p class="mb-4 pb-2 mali-regular">นายปองธรรม ดีบุกคำ
+                            <br><br>ชื่อเล่น เช
+                            <br><br>คณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยนเรศวร
+                            <br><br>"ที่มองกล้องแล้วทำหน้านิ่ง เพราะจะเก็บรอยยิ้มไว้ให้แม่"
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-0 " style="min-height: 700px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute img-fluid w-100 h-100" src="img\about6.jfif"
+                            style="object-fit: cover;" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 about-text py-5 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="p-lg-5 pe-lg-0">
+                        <div class="section-title text-start">
+                            <h1 class="display-5 mb-4 mali-bold">เจ้านาย (Dev.)</h1>
+                        </div>
+                        <p class="mb-4 pb-2 mali-regular">นายชญานิน คำเหมือง
+                            <br><br>ชื่อเล่น พี
+                            <br><br>คณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยนเรศวร
+                            <br><br>"สาระไม่ค่อยมี หน้าตาดีไปวันวัน Love you สาธุ"
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
