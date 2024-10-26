@@ -86,7 +86,6 @@ try {
     }
     $shipping = 50; // ค่าจัดส่ง
     $total = $subtotal + $shipping;
-
 } catch (PDOException $e) {
     echo "Database error: " . $e->getMessage();
     exit();
@@ -95,8 +94,9 @@ try {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
     <title>ka_jang_handmade</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
@@ -170,7 +170,7 @@ try {
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="user_dashboard.php" class="nav-item nav-link"><i class="fa-solid fa-house me-2"></i>Home</a>
-                <a href="trakra.php" class="nav-item nav-link active"><i class="bi bi-cart-fill"></i>  Shop</a>
+                <a href="trakra.php" class="nav-item nav-link active"><i class="bi bi-cart-fill"></i> Shop</a>
                 <a href="meaning-of-flowers.php" class="nav-item nav-link"><i class="fa-solid fa-leaf me-2"></i>Meaning of Flowers</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Products</a>
@@ -181,7 +181,7 @@ try {
                     </div>
                 </div>
                 <a href="about.php" class="nav-item nav-link"><i class="fa-solid fa-user me-2"></i>About</a>
-                <a href ="../../user_order.php" class="nav-item nav-link"><i class="bi bi-person-check-fill"></i> <?php echo htmlspecialchars($username); ?> </a>
+                <a href="user_order.php" class="nav-item nav-link"><i class="bi bi-person-check-fill"></i> <?php echo htmlspecialchars($username); ?> </a>
                 <a href="Logout.php" class="nav-item nav-link"><i class="bi bi-box-arrow-right"></i> Logout</a>
             </div>
             <a href="https://www.instagram.com/ka_jang_handmade/"
@@ -213,111 +213,116 @@ try {
             background-color: #fff;
             transition: 0.3s;
         }
+
         .team-item:hover {
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
         }
+
         .cart-item img {
             width: 80px;
             height: auto;
         }
+
         .cart-item h5 {
             margin-bottom: 0;
         }
     </style>
-</head>
-<body>
-   <!-- Products Section Start -->
-   <div class="container-xxl py-5">
-        <div class="container">
-            <div class="section-title text-start">
-                <h1 class="display-6 mb-5">Products</h1>
-            </div>
-            <div class="row g-4">
-                <?php foreach ($products as $product): ?>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp">
-                        <div class="team-item">
-                            <div class="overflow-hidden position-relative rounded-3">
-                                <img class="img-fluid" src="<?php echo htmlspecialchars($product['image_url']); ?>" alt="<?php echo htmlspecialchars($product['product_name']); ?>">
-                            </div>
-                            <div class="text-center p-4">
-                                <h5 class="mb-0"><?php echo htmlspecialchars($product['product_name']); ?></h5>
-                                <small><?php echo htmlspecialchars($product['price']); ?> ฿</small><br><br>
-                                <form action="trakra.php" method="post">
-                                    <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
-                                    <input type="number" name="quantity" value="1" min="1" max="<?php echo $product['quantity_in_stock']; ?>" class="form-control mb-2" style="width: 100px; display: inline-block;">
-                                    <button type="submit" class="btn btn-primary mt-2"><i class="bi bi-cart-plus"></i> Add to Cart</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </div>
-    <!-- Products Section End -->
+    </head>
 
-    <!-- Cart Section Start -->
-<div class="container py-5">
-    <h1 class="display-5 mb-5 text-center">Your Cart</h1>
-    <div class="row">
-        <div class="col-lg-8">
-            <div id="cart-items">
-                <?php if (!empty($cart_items)): ?>
-                    <?php foreach ($cart_items as $item): ?>
-                        <div class="cart-item mb-4 d-flex align-items-center">
-                            <img src="<?php echo htmlspecialchars($item['image_url']); ?>" alt="<?php echo htmlspecialchars($item['product_name']); ?>" class="img-fluid">
-                            <div class="ms-3">
-                                <h5><?php echo htmlspecialchars($item['product_name']); ?></h5>
-                                <small class="text-muted">Price: <?php echo htmlspecialchars($item['price']); ?> ฿</small><br>
-                                <small class="text-muted">Quantity: <?php echo $item['quantity']; ?></small>
-                            </div>
-                            <div class="ms-auto">
-                                <form action="" method="post" style="display:inline;">
-                                    <input type="hidden" name="remove_product_id" value="<?php echo $item['product_id']; ?>">
-                                    <button type="submit" class="btn btn-danger btn-sm">Remove</button>
-                                </form>
+    <body>
+        <!-- Products Section Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="section-title text-start">
+                    <h1 class="display-6 mb-5">Products</h1>
+                </div>
+                <div class="row g-4">
+                    <?php foreach ($products as $product): ?>
+                        <div class="col-lg-3 col-md-6 wow fadeInUp">
+                            <div class="team-item">
+                                <div class="overflow-hidden position-relative rounded-3">
+                                    <img class="img-fluid" src="<?php echo htmlspecialchars($product['image_url']); ?>" alt="<?php echo htmlspecialchars($product['product_name']); ?>">
+                                </div>
+                                <div class="text-center p-4">
+                                    <h5 class="mb-0"><?php echo htmlspecialchars($product['product_name']); ?></h5>
+                                    <small><?php echo htmlspecialchars($product['price']); ?> ฿</small><br><br>
+                                    <form action="trakra.php" method="post" class="d-flex align-items-center">
+                                        <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
+                                        <input type="number" name="quantity" value="1" min="1" max="<?php echo $product['quantity_in_stock']; ?>" class="form-control me-2" style="width: 100px; height: 100%;">
+                                        <button type="submit" class="btn btn-primary d-flex align-items-center" style="height: 38px;"><i class="bi bi-cart-plus me-1"></i> Add to Cart</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     <?php endforeach; ?>
-                <?php else: ?>
-                    <p class="text-muted">Your cart is empty.</p>
-                <?php endif; ?>
+                </div>
             </div>
         </div>
-        <div class="col-lg-4">
-            <h3 class="mb-4">Cart Summary</h3>
-            <div class="d-flex justify-content-between">
-                <h5>Subtotal:</h5>
-                <h5><?php echo htmlspecialchars($subtotal); ?> ฿</h5>
+        <!-- Products Section End -->
+
+        <!-- Cart Section Start -->
+        <div class="container py-5">
+            <h1 class="display-5 mb-5 text-center">Your Cart</h1>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div id="cart-items">
+                        <?php if (!empty($cart_items)): ?>
+                            <?php foreach ($cart_items as $item): ?>
+                                <div class="cart-item mb-4 d-flex align-items-center">
+                                    <img src="<?php echo htmlspecialchars($item['image_url']); ?>" alt="<?php echo htmlspecialchars($item['product_name']); ?>" class="img-fluid">
+                                    <div class="ms-3">
+                                        <h5><?php echo htmlspecialchars($item['product_name']); ?></h5>
+                                        <small class="text-muted">Price: <?php echo htmlspecialchars($item['price']); ?> ฿</small><br>
+                                        <small class="text-muted">Quantity: <?php echo $item['quantity']; ?></small>
+                                    </div>
+                                    <div class="ms-auto">
+                                        <form action="" method="post" style="display:inline;">
+                                            <input type="hidden" name="remove_product_id" value="<?php echo $item['product_id']; ?>">
+                                            <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <p class="text-muted">Your cart is empty.</p>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h3 class="mb-4">Cart Summary</h3>
+                    <div class="d-flex justify-content-between">
+                        <h5>Subtotal:</h5>
+                        <h5><?php echo htmlspecialchars($subtotal); ?> ฿</h5>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <h5>Shipping:</h5>
+                        <h5><?php echo htmlspecialchars($shipping); ?> ฿</h5>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <h5>Total:</h5>
+                        <h5><?php echo htmlspecialchars($total); ?> ฿</h5>
+                    </div>
+                    <a href="user_order.php" class="btn btn-primary mt-4">Proceed to Checkout</a>
+                </div>
             </div>
-            <div class="d-flex justify-content-between">
-                <h5>Shipping:</h5>
-                <h5><?php echo htmlspecialchars($shipping); ?> ฿</h5>
-            </div>
-            <hr>
-            <div class="d-flex justify-content-between">
-                <h5>Total:</h5>
-                <h5><?php echo htmlspecialchars($total); ?> ฿</h5>
-            </div>
-            <a href="user_order.php" class="btn btn-primary mt-4">Proceed to Checkout</a>
         </div>
-    </div>
-</div>
-<!-- Cart Section End -->
+        <!-- Cart Section End -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-    <!-- JavaScript Libraries -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="lib/wow/wow.min.js"></script>
-<script src="lib/easing/easing.min.js"></script>
-<script src="lib/waypoints/waypoints.min.js"></script>
-<script src="lib/counterup/counterup.min.js"></script>
-<script src="lib/owlcarousel/owl.carousel.min.js"></script>
-<script src="lib/isotope/isotope.pkgd.min.js"></script>
-<script src="lib/lightbox/js/lightbox.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/wow/wow.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/counterup/counterup.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/isotope/isotope.pkgd.min.js"></script>
+        <script src="lib/lightbox/js/lightbox.min.js"></script>
 
-<!-- Template Javascript -->
-<script src="js/main.js"></script>
-</body>
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+    </body>
+
 </html>
