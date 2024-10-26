@@ -97,7 +97,7 @@ if (isset($_SESSION['username'])) {
                     </div>
                 </div>
                 <a href="about.php" class="nav-item nav-link"><i class="fa-solid fa-user me-2"></i>About</a>
-                <a href ="user_order.php" class="nav-item nav-link"><i class="bi bi-person-check-fill"></i> <?php echo htmlspecialchars($username); ?> </a>
+                <a href ="../../user_order.php" class="nav-item nav-link"><i class="bi bi-person-check-fill"></i> <?php echo htmlspecialchars($username); ?> </a>
                 <a href="Logout.php" class="nav-item nav-link"><i class="bi bi-box-arrow-right"></i> Logout</a>
             </div>
             <a href="https://www.instagram.com/ka_jang_handmade/"
