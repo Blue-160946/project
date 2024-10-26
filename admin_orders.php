@@ -23,13 +23,16 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// ดึงข้อมูลจากตาราง cart, all_products และ users โดยใช้ JOIN
-$sql = "SELECT cart.id, all_products.product_name, cart.quantity, users.username
-        FROM cart 
-        JOIN all_products ON cart.product_id = all_products.product_id 
-        JOIN users ON cart.user_id = users.id";
+$sql = "SELECT orders.id, all_products.product_name, orders.quantity, users.username, orders.order_date, orders.total
+        FROM orders 
+        JOIN all_products ON orders.product_id = all_products.product_id 
+        JOIN users ON orders.user_id = users.id";
 
-$result = $conn->query($sql);  // รัน query
+
+$stmt = $conn->prepare($sql);  // เตรียม statement
+$stmt->execute();  // รัน query
+$result = $stmt->get_result();
+
 
 // ปิดการเชื่อมต่อ
 $conn->close();
@@ -70,10 +73,12 @@ $conn->close();
             background-color: #6C757D;
             padding: 100px 0;
         }
+
         .table thead th {
             background-color: #c25d82;
             color: white;
         }
+
         .table tbody tr:hover {
             background-color: #f8f9fa;
         }
@@ -129,19 +134,28 @@ $conn->close();
                 <table class="table table-bordered table-hover text-center align-middle">
                     <thead class="table-dark">
                         <tr>
+                            <th>Name</th>
                             <th>Order ID</th>
                             <th>Product Name</th>
                             <th>Quantity</th>
-                            <th>Username</th>
+                            <th>Date</th>
+                            <th>Order Remove</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php while ($row = $result->fetch_assoc()): ?>
                             <tr>
+                                <td><?php echo htmlspecialchars($row['username']); ?></td>
                                 <td><?php echo htmlspecialchars($row['id']); ?></td>
                                 <td><?php echo htmlspecialchars($row['product_name']); ?></td>
                                 <td><?php echo htmlspecialchars($row['quantity']); ?></td>
-                                <td><?php echo htmlspecialchars($row['username']); ?></td>
+                                <td><?php echo htmlspecialchars($row['order_date']); ?></td>
+                                <td>
+                                    <form action="delete_order.php" method="post" style="display:inline;">
+                                        <input type="hidden" name="order_date" value="<?php echo htmlspecialchars($row['order_date']); ?>">
+                                        <button type="submit" class="btn btn-danger">Remove</button>
+                                    </form>
+                                </td>
                             </tr>
                         <?php endwhile; ?>
                     </tbody>

@@ -37,17 +37,37 @@ if ($row_user = $result_user->fetch_assoc()) {
     exit();
 }
 
-// ดึงข้อมูลจากตาราง cart, all_products และ users โดยใช้ JOIN
-$sql = "SELECT cart.id, all_products.product_name, cart.quantity, users.username
-        FROM cart 
-        JOIN all_products ON cart.product_id = all_products.product_id 
-        JOIN users ON cart.user_id = users.id
-        WHERE cart.user_id = ?";  // ใช้ user_id ในการกรองรายการของผู้ใช้แต่ละคน
+// ดึงข้อมูลจากตาราง orders, all_products และ users โดยใช้ JOIN
+$sql = "SELECT orders.id, all_products.product_name, orders.quantity, users.username, orders.order_date, orders.total
+        FROM orders 
+        JOIN all_products ON orders.product_id = all_products.product_id 
+        JOIN users ON orders.user_id = users.id";  // ใช้ user_id ในการกรองรายการของผู้ใช้แต่ละคน
 
 $stmt = $conn->prepare($sql);  // เตรียม statement
-$stmt->bind_param("i", $user_id);  // ผูก parameter กับ user_id
 $stmt->execute();  // รัน query
-$result = $stmt->get_result();  // รับผลลัพธ์
+$result = $stmt->get_result();
+
+// คำนวณผลรวมของ total โดยใช้ DISTINCT และเรียงตามวันที่ล่าสุดเสมอ
+$sql_sum = "
+    SELECT SUM(total) AS total_sum
+    FROM (
+        SELECT DISTINCT order_date, total
+        FROM orders
+        ORDER BY order_date DESC
+    ) AS distinct_orders
+";
+
+$sumresult = $conn->query($sql_sum);
+
+// ตรวจสอบและดึงผลรวมค่า total
+$sumtotal = 0;
+if ($sumresult->num_rows > 0) {
+    $row = $sumresult->fetch_assoc();
+    $sumtotal = $row['total_sum'];
+} else {
+    echo "ไม่พบรายการสั่งซื้อ";
+}
+
 
 // ปิดการเชื่อมต่อ
 $stmt->close();
@@ -179,24 +199,29 @@ $conn->close();
                 <table class="table table-bordered table-hover">
                     <thead class="table-dark">
                         <tr>
+                            <th>Name</th>
                             <th>Order ID</th>
                             <th>Product Name</th>
                             <th>Quantity</th>
-                            <th>Name</th>
+                            <th>Date</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php while ($row = $result->fetch_assoc()): ?>
                             <tr>
+                                <td><?php echo htmlspecialchars($row['username']); ?></td>
                                 <td><?php echo htmlspecialchars($row['id']); ?></td>
                                 <td><?php echo htmlspecialchars($row['product_name']); ?></td>
                                 <td><?php echo htmlspecialchars($row['quantity']); ?></td>
-                                <td><?php echo htmlspecialchars($row['username']); ?></td>
+                                <td><?php echo htmlspecialchars($row['order_date']); ?></td>
                             </tr>
                         <?php endwhile; ?>
                     </tbody>
                 </table>
             </div>
+        <h4 class="text-end mb-4">Payment amount</h4>
+        <h4 class="text-end mb-4"><?php echo htmlspecialchars($sumtotal); ?> ฿</h4>
+
         <?php else: ?>
             <div class="alert alert-info text-center">
                 ไม่พบรายการสั่งซื้อ

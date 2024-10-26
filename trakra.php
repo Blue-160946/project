@@ -86,6 +86,24 @@ try {
     }
     $shipping = 50; // ค่าจัดส่ง
     $total = $subtotal + $shipping;
+
+    // คัดลอกข้อมูลจากตาราง cart ไปยังตาราง orders รวมราคาด้วย
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['checkout'])) {
+        $stmt = $conn->prepare("INSERT INTO orders (user_id, product_id, quantity, total) 
+                             SELECT cart.user_id, cart.product_id, cart.quantity, :total
+                             FROM cart 
+                             JOIN all_products ON cart.product_id = all_products.product_id 
+                             WHERE cart.user_id = :user_id");
+        $stmt->execute(['user_id' => $user_id, 'total' => $total]);
+
+        // ลบข้อมูลจากตาราง cart หลังจากการชำระเงิน
+        $stmt = $conn->prepare("DELETE FROM cart WHERE user_id = :user_id");
+        $stmt->execute(['user_id' => $user_id]);
+
+        // รีไดเรกต์ไปยังหน้าเช็คเอาท์หรือหน้าที่คุณต้องการ
+        header("Location: user_order.php");
+        exit();
+    }
 } catch (PDOException $e) {
     echo "Database error: " . $e->getMessage();
     exit();
@@ -303,8 +321,11 @@ try {
                         <h5>Total:</h5>
                         <h5><?php echo htmlspecialchars($total); ?> ฿</h5>
                     </div>
-                    <a href="user_order.php" class="btn btn-primary mt-4">Proceed to Checkout</a>
+                    <form action="" method="post">
+                        <button type="submit" name="checkout" class="btn btn-primary mt-4">Proceed to Checkout</button>
+                    </form>
                 </div>
+
             </div>
         </div>
         <!-- Cart Section End -->
