@@ -15,6 +15,8 @@ $dbname = "webdatabase";
 
 $conn = new mysqli($servername, $db_username, $password, $dbname);
 
+
+
 // ตรวจสอบการเชื่อมต่อ
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -46,6 +48,6 @@ if (isset($_POST['order_date'])) {
 $conn->close();
 
 // ส่งผู้ใช้กลับไปยังหน้าที่ต้องการ
-header("Location: admin_orders.php");
+header("Location: $_SESSION[go]");
 exit();
 

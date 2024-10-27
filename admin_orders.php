@@ -18,6 +18,8 @@ $dbname = "webdatabase";
 
 $conn = new mysqli($servername, $db_username, $password, $dbname);
 
+$_SESSION['go'] = 'admin_orders.php';
+
 // ตรวจสอบการเชื่อมต่อ
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

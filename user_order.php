@@ -17,6 +17,8 @@ $dbname = "webdatabase";
 
 $conn = new mysqli($servername, $db_username, $password, $dbname);
 
+$_SESSION['go'] = 'user_order.php';
+
 // ตรวจสอบการเชื่อมต่อ
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -193,10 +195,10 @@ $conn->close();
 
 
     <div class="container mt-5">
-        <h2 class="text-center mb-4">รายการสั่งซื้อ</h2>
+        <h2 class="text-center mb-4">รายการสั่งซื้อทั้งหมด</h2>
         <?php if ($result->num_rows > 0): ?>
             <div class="table-responsive">
-                <table class="table table-bordered table-hover">
+                <table class="table table-bordered table-hover text-center align-middle">
                     <thead class="table-dark">
                         <tr>
                             <th>Name</th>
@@ -204,6 +206,7 @@ $conn->close();
                             <th>Product Name</th>
                             <th>Quantity</th>
                             <th>Date</th>
+                            <th>Order Remove</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -214,6 +217,12 @@ $conn->close();
                                 <td><?php echo htmlspecialchars($row['product_name']); ?></td>
                                 <td><?php echo htmlspecialchars($row['quantity']); ?></td>
                                 <td><?php echo htmlspecialchars($row['order_date']); ?></td>
+                                <td>
+                                    <form action="delete_order.php" method="post" style="display:inline;">
+                                        <input type="hidden" name="order_date" value="<?php echo htmlspecialchars($row['order_date']); ?>">
+                                        <button type="submit" class="btn btn-danger">Remove</button>
+                                    </form>
+                                </td>
                             </tr>
                         <?php endwhile; ?>
                     </tbody>
