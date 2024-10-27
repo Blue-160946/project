@@ -51,17 +51,21 @@ $stmt->bind_param("i", $user_id);  // ผูก user_id เป็นพารา
 $stmt->execute();  // รัน query
 $result = $stmt->get_result();
 
-// คำนวณผลรวมของ total โดยใช้ DISTINCT และเรียงตามวันที่ล่าสุดเสมอ
+// คำนวณผลรวมของ total โดยใช้ DISTINCT และเรียงตามวันที่ล่าสุดเสมอ เฉพาะของ user ที่ล็อกอิน
 $sql_sum = "
     SELECT SUM(total) AS total_sum
     FROM (
         SELECT DISTINCT order_date, total
         FROM orders
+        WHERE user_id = ?  -- เพิ่มเงื่อนไขกรอง user_id ที่ล็อกอินอยู่
         ORDER BY order_date DESC
     ) AS distinct_orders
 ";
 
-$sumresult = $conn->query($sql_sum);
+$stmt_sum = $conn->prepare($sql_sum);
+$stmt_sum->bind_param("i", $user_id); // ผูก user_id เป็นพารามิเตอร์
+$stmt_sum->execute();
+$sumresult = $stmt_sum->get_result();
 
 // ตรวจสอบและดึงผลรวมค่า total
 $sumtotal = 0;
@@ -71,6 +75,7 @@ if ($sumresult->num_rows > 0) {
 } else {
     echo "ไม่พบรายการสั่งซื้อ";
 }
+
 
 
 // ปิดการเชื่อมต่อ

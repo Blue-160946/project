@@ -89,20 +89,35 @@ try {
 
     // คัดลอกข้อมูลจากตาราง cart ไปยังตาราง orders รวมราคาด้วย
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['checkout'])) {
-        $stmt = $conn->prepare("INSERT INTO orders (user_id, product_id, quantity, total) 
-                             SELECT cart.user_id, cart.product_id, cart.quantity, :total
-                             FROM cart 
-                             JOIN all_products ON cart.product_id = all_products.product_id 
-                             WHERE cart.user_id = :user_id");
-        $stmt->execute(['user_id' => $user_id, 'total' => $total]);
+        $conn->beginTransaction();
 
-        // ลบข้อมูลจากตาราง cart หลังจากการชำระเงิน
-        $stmt = $conn->prepare("DELETE FROM cart WHERE user_id = :user_id");
-        $stmt->execute(['user_id' => $user_id]);
+        try {
+            // คัดลอกข้อมูลไปยังตาราง orders
+            $stmt = $conn->prepare("INSERT INTO orders (user_id, product_id, quantity, total) 
+                                    SELECT cart.user_id, cart.product_id, cart.quantity, :total
+                                    FROM cart 
+                                    JOIN all_products ON cart.product_id = all_products.product_id 
+                                    WHERE cart.user_id = :user_id");
+            $stmt->execute(['user_id' => $user_id, 'total' => $total]);
 
-        // รีไดเรกต์ไปยังหน้าเช็คเอาท์หรือหน้าที่คุณต้องการ
-        header("Location: user_order.php");
-        exit();
+            // อัปเดตจำนวนสินค้าในตาราง all_products
+            $stmt = $conn->prepare("UPDATE all_products AS p
+                                    JOIN cart AS c ON p.product_id = c.product_id
+                                    SET p.quantity_in_stock = p.quantity_in_stock - c.quantity
+                                    WHERE c.user_id = :user_id");
+            $stmt->execute(['user_id' => $user_id]);
+
+            // ลบข้อมูลจากตาราง cart หลังจากการชำระเงิน
+            $stmt = $conn->prepare("DELETE FROM cart WHERE user_id = :user_id");
+            $stmt->execute(['user_id' => $user_id]);
+
+            $conn->commit();
+            header("Location: user_order.php");
+            exit();
+        } catch (PDOException $e) {
+            $conn->rollBack();
+            echo "Database error: " . $e->getMessage();
+        }
     }
 } catch (PDOException $e) {
     echo "Database error: " . $e->getMessage();
