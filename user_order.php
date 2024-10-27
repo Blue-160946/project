@@ -39,13 +39,15 @@ if ($row_user = $result_user->fetch_assoc()) {
     exit();
 }
 
-// ดึงข้อมูลจากตาราง orders, all_products และ users โดยใช้ JOIN
+// ดึงข้อมูลจากตาราง orders, all_products และ users โดยใช้ JOIN เฉพาะของ user ที่ล็อกอินอยู่
 $sql = "SELECT orders.id, all_products.product_name, orders.quantity, users.username, orders.order_date, orders.total
         FROM orders 
         JOIN all_products ON orders.product_id = all_products.product_id 
-        JOIN users ON orders.user_id = users.id";  // ใช้ user_id ในการกรองรายการของผู้ใช้แต่ละคน
+        JOIN users ON orders.user_id = users.id
+        WHERE orders.user_id = ?";  // เพิ่มเงื่อนไข WHERE เพื่อกรองข้อมูลเฉพาะผู้ใช้ที่ล็อกอิน
 
 $stmt = $conn->prepare($sql);  // เตรียม statement
+$stmt->bind_param("i", $user_id);  // ผูก user_id เป็นพารามิเตอร์
 $stmt->execute();  // รัน query
 $result = $stmt->get_result();
 
